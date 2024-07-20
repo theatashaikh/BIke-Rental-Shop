@@ -30,7 +30,7 @@ The Bike Rental Shop allows customers to rent and return bikes. The project cons
 
 - `customer_id SERIAL PRIMARY KEY`
 - `name VARCHAR(40) NOT NULL`
-- `phone VARCHAR(15) NOT NULL`
+- `phone VARCHAR(15) NOT NULL UNIQUE`
 
 ### `rentals` Table
 
@@ -38,7 +38,7 @@ The Bike Rental Shop allows customers to rent and return bikes. The project cons
 - `customer_id INT REFERENCES customers(customer_id) NOT NULL`
 - `bike_id INT REFERENCES bikes(bike_id) NOT NULL`
 - `date_rented DATE DEFAULT NOW() NOT NULL`
-- `date_returned DATE
+- `date_returned DATE`
 
 ## How to Use
 
@@ -62,7 +62,7 @@ The Bike Rental Shop allows customers to rent and return bikes. The project cons
    CREATE TABLE customers (
      customer_id SERIAL PRIMARY KEY,
      name VARCHAR(40) NOT NULL,
-     phone VARCHAR(15) NOT NULL
+     phone VARCHAR(15) NOT NULL UNIQUE
    );
 
    CREATE TABLE rentals (
